@@ -1,0 +1,27 @@
+{
+  "name": "showcase-video-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Motor Remotion de videos showcase de procesos (antes / después con IA), 9:16.",
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "dependencies": {
+    "@remotion/cli": "4.0.540",
+    "@remotion/fonts": "4.0.540",
+    "@remotion/media": "4.0.540",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.540"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.ts",
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Showcase",
+    "still": "remotion still src/index.ts Showcase"
+  }
+}

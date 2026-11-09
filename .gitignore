@@ -1,0 +1,27 @@
+# dependencias y cachés
+video/node_modules/
+.venv/
+.venv-tts/
+.cache/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# configuración local (rutas de cada máquina)
+config.json
+
+# salidas: nunca van a git (videos, audios, análisis de grabaciones)
+work/
+entregables/
+video/public/audio/
+video/out/
+
+# los proyectos de cada persona quedan locales (pueden tener datos de clientes)
+projects/*
+!projects/.gitkeep
+
+# videos y grabaciones sueltas
+*.mp4
+*.mov
+*.mkv
+*.webm

@@ -1,0 +1,6 @@
+# Pipeline (build, QA, análisis de grabaciones). Python 3.12.
+# Versiones probadas con este repo.
+numpy==2.5.4
+faster-whisper==1.2.1
+ctranslate2==4.8.5
+pytest==9.2.0

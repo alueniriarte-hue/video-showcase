@@ -1,0 +1,12 @@
+# Voz local con Qwen3-TTS (entorno aparte: choca con las versiones de huggingface-hub del pipeline). Python 3.12.
+# Versiones probadas con este repo. En Mac con Apple Silicon, torch usa "mps" (config.json: "tts_device": "mps").
+qwen-tts==0.1.1
+torch==2.15.0
+torchaudio==2.11.1
+transformers==4.57.3
+accelerate==1.12.0
+soundfile==0.14.0
+numpy==2.5.4
+librosa==1.0.0
+onnxruntime==1.31.1
+huggingface-hub==0.36.2

@@ -1,0 +1,630 @@
+{
+ "id": "pedidos-corto",
+ "title": "Nueva herramienta para pasar pedidos (corto)",
+ "format": {
+  "w": 1080,
+  "h": 1920,
+  "fps": 30
+ },
+ "bpm": 120,
+ "audience": "interno",
+ "publication": "Ejemplo de la skill: caso y cifras inventados (ILUSTRATIVO).",
+ "chapters": [],
+ "evidence": {
+  "doscientos veinte pedidos por día": "ILUSTRATIVO · cifra de ejemplo inventada para este video (dataset.scan.total = 220)",
+  "doscientos doce resueltos solos y ocho a revisar": "ILUSTRATIVO · ejemplo (dataset.scan.auto = 212)",
+  "tres horas por día a mano": "ILUSTRATIVO · estimación de ejemplo, no medida",
+  "veinte minutos de proceso y veinticinco de revisión, cuarenta y cinco en total": "ILUSTRATIVO · ejemplo, no medido",
+  "cuatro cajas, no cuarenta": "ILUSTRATIVO · error de tipeo inventado para mostrar la corrección"
+ },
+ "dataset": {
+  "scan": {
+   "total": 220,
+   "auto": 212,
+   "period": "day",
+   "file": "pedidos-del-dia.xlsx",
+   "columns": [
+    "Hora",
+    "Pedido",
+    "Producto",
+    "Regla / motivo"
+   ],
+   "field_label": "Pedido leído",
+   "review_prefix": "Revisar ·",
+   "ok_label": "✓ Regla",
+   "review_label": "● Revisar",
+   "badges": {
+    "review": "CONTROLAR",
+    "fixed": "CORREGIDO",
+    "ok": "OK"
+   },
+   "rows": [
+    [
+     "#1043 Almacén Sol",
+     "Yerba 1 kg · 12"
+    ],
+    [
+     "#1044 Bar Esquina",
+     "Café 500 g · 6"
+    ],
+    [
+     "#1045 Super Ruta",
+     "Harina 1 kg · 30"
+    ],
+    [
+     "#1046 Kiosco Centro",
+     "Galletitas · 24"
+    ],
+    [
+     "#1047 Almacén Sol",
+     "Azúcar 1 kg · 10"
+    ],
+    [
+     "#1048 Despensa Luz",
+     "Fideos · 40"
+    ],
+    [
+     "#1049 Super Ruta",
+     "Aceite · 8 cajas"
+    ],
+    [
+     "#1050 Bar Esquina",
+     "Leche · 20"
+    ]
+   ],
+   "amber": [
+    [
+     "#1088 Despensa Luz",
+     "Arroz · 15",
+     "cliente nuevo sin datos"
+    ],
+    [
+     "#1121 Bar Esquina",
+     "Café 500 g · 60",
+     "cantidad fuera de lo habitual"
+    ]
+   ],
+   "cards": [
+    {
+     "date": "09:16",
+     "mov": "#1077 Kiosco Centro",
+     "rubro": "Aceite · 40 cajas",
+     "motivo": "cantidad fuera de lo habitual"
+    },
+    {
+     "date": "11:46",
+     "mov": "#1102 Almacén Sol",
+     "rubro": "Harina 1 kg · 30",
+     "motivo": "precio distinto de la lista"
+    },
+    {
+     "date": "14:16",
+     "mov": "#1150 Super Ruta",
+     "rubro": "Azúcar 1 kg · 25",
+     "motivo": "sin stock en el depósito"
+    },
+    {
+     "date": "16:46",
+     "mov": "#1196 Despensa Luz",
+     "rubro": "Yerba 1 kg · 18",
+     "motivo": "pedido duplicado"
+    }
+   ]
+  }
+ },
+ "scenes": [
+  {
+   "id": "apertura",
+   "type": "opener",
+   "act": "apertura",
+   "lines": [
+    "Pedidos validados en minutos, y con el equipo al mando."
+   ],
+   "beats": {
+    "title": "Pedidos",
+    "proc": "validados",
+    "fast": "minutos"
+   },
+   "params": {
+    "headline": [
+     "Pedidos sin",
+     "planillas"
+    ],
+    "process": "Herramienta nueva",
+    "tagline": "validados con IA"
+   },
+   "post": 1.0
+  },
+  {
+   "id": "antes",
+   "type": "before",
+   "act": "antes",
+   "lines": [
+    "¿Cómo se pasaban los pedidos antes?",
+    "A mano, en planillas, y al final no coincidía."
+   ],
+   "beats": {
+    "q": "Cómo",
+    "sheet": "mano",
+    "control": "final",
+    "mismatch": "coincidía"
+   },
+   "params": {
+    "question": [
+     "¿Cómo se",
+     "pasaban los",
+     "pedidos antes?"
+    ],
+    "rewind_label": "REBOBINANDO · ANTES",
+    "label": "Antes · a mano",
+    "tag": "ILUSTRATIVO",
+    "columns": [
+     "HORA",
+     "PEDIDO",
+     "CANT."
+    ],
+    "rows": [
+     [
+      "08:12",
+      "Almacén Sol · Yerba 1 kg",
+      "12"
+     ],
+     [
+      "08:40",
+      "Kiosco Centro · Aceite",
+      "4"
+     ],
+     [
+      "09:05",
+      "Super Ruta · Harina 1 kg",
+      "30"
+     ],
+     [
+      "09:31",
+      "Almacén Sol · Azúcar",
+      "10"
+     ],
+     [
+      "10:02",
+      "Bar Esquina · Café 500 g",
+      "6"
+     ],
+     [
+      "10:20",
+      "Kiosco Centro · Galletitas",
+      "24"
+     ],
+     [
+      "10:47",
+      "Super Ruta · Fideos",
+      "40"
+     ]
+    ],
+    "pile_label": "Mensaje",
+    "pile_tag": "MSJ",
+    "pile_total": 30,
+    "total_label": "Total contra stock",
+    "pending_label": "Sumando…",
+    "mismatch_label": "≠ stock",
+    "stamp": "NO COINCIDE",
+    "redo_label": "A revisar todo"
+   },
+   "min_s": 8.5
+  },
+  {
+   "id": "giro",
+   "type": "turn",
+   "act": "diseno",
+   "lines": [
+    "Hoy, con la herramienta nueva, es otra historia."
+   ],
+   "beats": {
+    "hoy": "Hoy",
+    "flip": "herramienta"
+   },
+   "params": {
+    "word": "HOY",
+    "title": "con IA",
+    "subtitle": "el mismo pedido · otro proceso"
+   }
+  },
+  {
+   "id": "paso-carga",
+   "type": "input",
+   "act": "proceso",
+   "step": 1,
+   "step_label": "Carga en lote",
+   "lines": [
+    "Cargás todos los pedidos juntos."
+   ],
+   "beats": {
+    "drag": "Cargás",
+    "drop": "pedidos",
+    "click": "juntos"
+   },
+   "params": {
+    "window_title": "Pedidos · herramienta nueva",
+    "items": [
+     "WhatsApp.txt",
+     "Correos.pdf",
+     "Llamadas.xlsx"
+    ],
+    "item_tag": "PED",
+    "drop_title": "Soltá los pedidos acá",
+    "drop_sub": "WhatsApp, correo y planillas",
+    "summary": "3 fuentes · 220 pedidos",
+    "button": "Validar con IA",
+    "button_busy": "Validando…",
+    "notes": [
+     {
+      "kind": "ILUSTRATIVO",
+      "text": "Interfaz recreada para el video"
+     }
+    ]
+   }
+  },
+  {
+   "id": "paso-valida",
+   "type": "process",
+   "act": "proceso",
+   "step": 2,
+   "step_label": "Validación con IA",
+   "lines": [
+    "La IA los lee y los valida."
+   ],
+   "beats": {
+    "read": "lee",
+    "count": "valida"
+   },
+   "params": {
+    "window_title": "Pedidos · herramienta nueva",
+    "groups": [
+     {
+      "label": "WhatsApp",
+      "count": 120
+     },
+     {
+      "label": "Correo",
+      "count": 64
+     },
+     {
+      "label": "Llamadas",
+      "count": 36
+     }
+    ],
+    "unit": "pedidos",
+    "counter_label": "pedidos leídos",
+    "notes": [
+     {
+      "kind": "ILUSTRATIVO",
+      "text": "Proceso acelerado · cifras de ejemplo"
+     }
+    ]
+   },
+   "post": 0.9
+  },
+  {
+   "id": "paso-controles",
+   "type": "check",
+   "act": "proceso",
+   "step": 3,
+   "step_label": "Controles",
+   "lines": [
+    "Controla totales, stock, precios y clientes."
+   ],
+   "beats": {
+    "r1": "Controla",
+    "r2": "totales",
+    "r3": "stock",
+    "r4": "precios",
+    "groups": "clientes",
+    "ok": "clientes"
+   },
+   "params": {
+    "title": "Control de totales",
+    "rows": [
+     [
+      "",
+      "Pedidos recibidos"
+     ],
+     [
+      "−",
+      "Duplicados"
+     ],
+     [
+      "−",
+      "Anulados"
+     ],
+     [
+      "=",
+      "Pedidos a preparar"
+     ]
+    ],
+    "compare_label": "Cargados en el sistema",
+    "count": null,
+    "groups": [
+     {
+      "label": "Stock",
+      "detail": "por depósito"
+     },
+     {
+      "label": "Precios",
+      "detail": "lista vigente"
+     },
+     {
+      "label": "Clientes",
+      "detail": "datos completos"
+     }
+    ],
+    "result": "Diferencia: 0",
+    "notes": [
+     {
+      "kind": "ILUSTRATIVO",
+      "text": "Valores ocultos · ejemplo"
+     }
+    ]
+   },
+   "post": 1.6
+  },
+  {
+   "id": "paso-reglas",
+   "type": "scan",
+   "act": "proceso",
+   "step": 4,
+   "step_label": "Reglas sobre todos",
+   "lines": [
+    "Aplica las reglas a todos: solo ocho quedan para revisar."
+   ],
+   "beats": {
+    "scan": "Aplica",
+    "pct": "todos",
+    "amber": "ocho"
+   },
+   "params": {
+    "sheet_title": "Pedidos del día",
+    "scan_label": "IA · APLICANDO REGLAS",
+    "notes": [
+     {
+      "kind": "ILUSTRATIVO",
+      "text": "Pedidos ficticios · cifras de ejemplo"
+     }
+    ]
+   },
+   "post": 1.4
+  },
+  {
+   "id": "paso-revision",
+   "type": "review",
+   "act": "proceso",
+   "step": 5,
+   "step_label": "Control humano",
+   "lines": [
+    "El equipo revisa esas excepciones con su criterio, corrige y confirma."
+   ],
+   "beats": {
+    "human": "equipo",
+    "open": "revisa",
+    "expert": "criterio",
+    "fix": "corrige",
+    "ok": "confirma"
+   },
+   "params": {
+    "banner_title": "CONTROL HUMANO",
+    "banner_sub": "El criterio del experto",
+    "options": [
+     "Aceite · 4 cajas",
+     "Aceite · 14 cajas",
+     "Aceite · 40 cajas"
+    ],
+    "pointer_label": "EQUIPO",
+    "confirm": "Confirmar revisión",
+    "confirmed": "✓ Revisión confirmada",
+    "notes": [
+     {
+      "kind": "ILUSTRATIVO",
+      "text": "Ejemplo de corrección · interfaz recreada"
+     }
+    ]
+   }
+  },
+  {
+   "id": "paso-aprende",
+   "type": "learn",
+   "act": "proceso",
+   "step": 5,
+   "step_label": "Control humano",
+   "lines": [
+    "Y cada corrección suma reglas nuevas."
+   ],
+   "beats": {
+    "prop": "corrección",
+    "next": "suma",
+    "high": "nuevas"
+   },
+   "params": {
+    "header": "Las correcciones alimentan las reglas",
+    "correction_label": "Corrección del equipo",
+    "correction": {
+     "title": "KIOSCO CENTRO · ACEITE",
+     "from": "40 cajas",
+     "to": "4 cajas"
+    },
+    "ia_label": "IA · DETECTA EL PATRÓN",
+    "rule_label": "Regla nueva",
+    "rule": {
+     "if": "SI  cantidad > 3 × lo habitual",
+     "then": "→  pedir confirmación"
+    },
+    "count": 3,
+    "store_title": "Reglas del negocio",
+    "store_added": "+{n} nuevas",
+    "gauge_label": "Resolución automática",
+    "gauge_value": "se mantiene alta",
+    "gauge_pct": 96,
+    "notes": [
+     {
+      "kind": "CONCEPTUAL",
+      "text": "Ejemplo de regla"
+     }
+    ]
+   },
+   "post": 1.4
+  },
+  {
+   "id": "paso-entrega",
+   "type": "deliver",
+   "act": "proceso",
+   "step": 6,
+   "step_label": "Entrega",
+   "lines": [
+    "Y los pedidos salen listos al sistema."
+   ],
+   "beats": {
+    "load": "salen",
+    "ok": "sistema"
+   },
+   "params": {
+    "window_title": "Pedidos confirmados",
+    "columns": [
+     "Hora",
+     "Destino",
+     "Producto",
+     "Importe"
+    ],
+    "groups": [
+     "Facturación",
+     "Depósito",
+     "Reparto"
+    ],
+    "fixed_value": "Aceite · 4 cajas",
+    "button": "Enviar al sistema",
+    "counter_label": "pedidos entregados",
+    "ff_label": "carga acelerada",
+    "ok_label": "✓ Listo",
+    "notes": [
+     {
+      "kind": "ILUSTRATIVO",
+      "text": "Interfaz recreada"
+     }
+    ]
+   }
+  },
+  {
+   "id": "operacion",
+   "type": "impact",
+   "act": "operacion",
+   "lines": [
+    "Antes, tres horas por día. Ahora, cuarenta y cinco minutos, con control."
+   ],
+   "beats": {
+    "manual": "tres",
+    "ai": "Ahora",
+    "review": "control"
+   },
+   "params": {
+    "label": "En la operación",
+    "tag": "ILUSTRATIVO",
+    "before": {
+     "label": "A mano",
+     "minutes": 180,
+     "tasks": [
+      "Leer",
+      "Cargar",
+      "Controlar",
+      "Corregir"
+     ],
+     "caption": "Todo el tiempo es trabajo manual"
+    },
+    "after": {
+     "label": "Con IA",
+     "ai": 20,
+     "review": 25,
+     "ai_label": "IA",
+     "detail": "{ai} min de proceso · {review} de revisión",
+     "caption": "El equipo se dedica a las excepciones"
+    },
+    "unit": "min",
+    "cards": [
+     {
+      "value": "8",
+      "unit": "de 220",
+      "label": "pedidos al equipo",
+      "tag": "ILUSTRATIVO",
+      "tone": "review"
+     },
+     {
+      "value": "0",
+      "label": "pedidos sin control",
+      "tag": "ILUSTRATIVO",
+      "tone": "ok"
+     },
+     {
+      "value": "+3",
+      "label": "reglas nuevas",
+      "tag": "ILUSTRATIVO",
+      "tone": "accent"
+     }
+    ],
+    "disclaimer": "Cifras de ejemplo para este video: no son mediciones reales."
+   },
+   "min_s": 9
+  },
+  {
+   "id": "cierre",
+   "type": "close",
+   "act": "cierre",
+   "lines": [
+    "Así se trabaja hoy: con IA, y con el equipo al mando."
+   ],
+   "beats": {
+    "title": "Así",
+    "proc": "trabaja",
+    "fast": "mando"
+   },
+   "params": {
+    "message": [
+     "Menos carga",
+     "manual.",
+     "Más criterio."
+    ],
+    "pairs": [
+     [
+      "Pedidos",
+      "validados",
+      "ok"
+     ],
+     [
+      "Dudas",
+      "al equipo",
+      "review"
+     ],
+     [
+      "Errores",
+      "reglas nuevas",
+      "accent"
+     ]
+    ],
+    "headline": [
+     "Pedidos",
+     "con IA y criterio"
+    ],
+    "client": "",
+    "process": "Pedidos del día",
+    "tagline": "con el equipo al mando"
+   },
+   "min_s": 6,
+   "post": 3.0
+  },
+  {
+   "id": "marca",
+   "type": "outro",
+   "act": "marca",
+   "lines": [],
+   "params": {
+    "brand": "ACME",
+    "signature": "Distribuidora de ejemplo"
+   },
+   "min_s": 3.5
+  }
+ ]
+}

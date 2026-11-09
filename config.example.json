@@ -1,0 +1,7 @@
+{
+ "ffmpeg": "ffmpeg",
+ "ffprobe": "ffprobe",
+ "tts_python": ".venv-tts/Scripts/python.exe",
+ "hf_home": ".cache/huggingface",
+ "tts_device": "cpu"
+}
